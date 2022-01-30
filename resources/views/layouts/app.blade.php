@@ -23,7 +23,7 @@
 
 
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-
+    @livewireStyles()
 </head>
 <body>
     <div id="app">
@@ -83,9 +83,12 @@
 
         <main class="py-4">
             @yield('content')
+            {{ isset($slot) ? $slot : null }}
         </main>
     </div>
 
+    @livewireScripts()
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+@stack('scripts')
 </body>
 </html>
